@@ -1,4 +1,4 @@
-import speedtest from "./speedtest.ts";
+import speedtest, { cmd } from "./speedtest.ts";
 import { post } from "./machinist.ts";
 import { metrics } from "./machinist.ts";
 import { isString } from "./types/utils.ts";
@@ -11,7 +11,7 @@ try {
     Deno.exit(1);
   }
 
-  const root = await speedtest();
+  const root = speedtest(cmd());
 
   const resPing = post({
     agent: "ping",
