@@ -1,0 +1,40 @@
+{
+  "type": "result",
+  "timestamp": "2023-01-05T08:27:50Z",
+  "ping": { "jitter": 0.453, "latency": 6.735, "low": 6.242, "high": 7.325 },
+  "download": {
+    "bandwidth": 8193844,
+    "bytes": 108941822,
+    "elapsed": 15015,
+    "latency": { "iqm": 6.621, "low": 5.446, "high": 235.367, "jitter": 5.854 }
+  },
+  "upload": {
+    "bandwidth": 66039928,
+    "bytes": 416324582,
+    "elapsed": 6328,
+    "latency": { "iqm": 28.677, "low": 5.990, "high": 82.740, "jitter": 9.881 }
+  },
+  "packetLoss": 0,
+  "isp": "Softbank BB",
+  "interface": {
+    "internalIp": "172.17.33.133",
+    "name": "eth0",
+    "macAddr": "00:15:5D:81:2A:13",
+    "isVpn": false,
+    "externalIp": "126.117.214.201"
+  },
+  "server": {
+    "id": 20976,
+    "host": "speedtest-xg-tokyo.glbb.ne.jp",
+    "port": 8080,
+    "name": "GLBB Japan",
+    "location": "Tokyo",
+    "country": "Japan",
+    "ip": "27.0.31.2"
+  },
+  "result": {
+    "id": "20707e63-d64f-4946-a579-f25f595604c6",
+    "url": "https://www.speedtest.net/result/c/20707e63-d64f-4946-a579-f25f595604c6",
+    "persisted": true
+  }
+}
