@@ -3,7 +3,6 @@ import { Latency, Ping } from "./types/speedtest.ts";
 import { Body, Metric } from "./types/machinist.ts";
 
 export const post = async (body: Body, apiKey: string) => {
-  console.log(body);
   const res = await fetch(MACHINIST_ENDPOINT, {
     method: "POST",
     body: JSON.stringify(body),
