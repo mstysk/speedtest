@@ -1,6 +1,6 @@
 const MACHINIST_ENDPOINT = "https://gw.machinist.iij.jp/endpoint";
 import { Latency, Ping } from "./types/speedtest.ts";
-import { Params, Metic } from "./types/machinist.ts";
+import { Params, Metoric } from "./types/machinist.ts";
 
 export const post = async (params: Params, apiKey: string) => {
   const res = await fetch(MACHINIST_ENDPOINT, {
@@ -35,11 +35,11 @@ const body = (params: Params) => {
 };
 
 export const metorics = (namespace: string, obj: Ping | Latency) => {
-  return Object.entries(obj).map(([key, value]): Metic => {
+  return Object.entries(obj).map(([key, value]): Metoric => {
     return {
       namespace,
       name: key,
       value,
     };
-  }).filter((metic: Metic) => ["high", "low"].includes(metic.name));
+  }).filter((metoric: Metoric) => ["high", "low"].includes(metoric.name));
 };

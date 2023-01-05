@@ -1,9 +1,9 @@
 export interface Params {
   agent: string;
-  metorics: Metic[];
+  metorics: Metoric[];
 }
 
-export interface Metic {
+export interface Metoric {
   name: string;
   namespace: string;
   value: number;
