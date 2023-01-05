@@ -1,11 +1,12 @@
 const MACHINIST_ENDPOINT = "https://gw.machinist.iij.jp/endpoint";
 import { Latency, Ping } from "./types/speedtest.ts";
-import { Params, Metoric } from "./types/machinist.ts";
+import { Body, Metric } from "./types/machinist.ts";
 
-export const post = async (params: Params, apiKey: string) => {
+export const post = async (body: Body, apiKey: string) => {
+  console.log(body);
   const res = await fetch(MACHINIST_ENDPOINT, {
     method: "POST",
-    body: JSON.stringify(body(params)),
+    body: JSON.stringify(body),
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${apiKey}`,
@@ -18,28 +19,14 @@ export const post = async (params: Params, apiKey: string) => {
   return await res.json();
 };
 
-const body = (params: Params) => {
-  const metorics = params.metorics.map((metoric) => {
-    return {
-      name: metoric.name,
-      namespace: metoric.namespace,
-      data_point: {
-        value: metoric.value,
-      },
-    };
-  });
-  return {
-    agent: params.agent,
-    metrics: metorics,
-  };
-};
-
-export const metorics = (namespace: string, obj: Ping | Latency) => {
-  return Object.entries(obj).map(([key, value]): Metoric => {
+export const metrics = (namespace: string, obj: Ping | Latency) => {
+  return Object.entries(obj).map(([key, value]): Metric => {
     return {
       namespace,
       name: key,
-      value,
+      data_point: {
+        value,
+      },
     };
-  }).filter((metoric: Metoric) => ["high", "low"].includes(metoric.name));
+  }).filter((metoric: Metric) => ["high", "low"].includes(metoric.name));
 };

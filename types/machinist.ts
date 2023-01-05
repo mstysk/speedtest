@@ -1,11 +1,14 @@
-export interface Params {
+export interface Body {
   agent: string;
-  metorics: Metoric[];
+  metrics: Metric[];
 }
 
-export interface Metoric {
+export interface Metric {
   name: string;
   namespace: string;
-  value: number;
+  data_point: DataPoint;
 }
 
+export interface DataPoint {
+  value: number;
+}

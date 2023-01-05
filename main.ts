@@ -1,6 +1,6 @@
 import speedtest from "./speedtest.ts";
 import { post } from "./machinist.ts";
-import { metorics } from "./machinist.ts";
+import { metrics } from "./machinist.ts";
 import { isString } from "./types/utils.ts";
 
 try {
@@ -15,17 +15,17 @@ try {
 
   const resPing = post({
     agent: "ping",
-    metorics: metorics("speedtest.ping", root.ping),
+    metrics: metrics("speedtest.ping", root.ping),
   }, apiKey);
 
   const resDownload = post({
     agent: "download",
-    metorics: metorics("speedtest.download", root.download.latency),
+    metrics: metrics("speedtest.download", root.download.latency),
   }, apiKey);
 
   const resUpload = post({
     agent: "upload",
-    metorics: metorics("speedtest.upload", root.upload.latency),
+    metrics: metrics("speedtest.upload", root.upload.latency),
   }, apiKey);
 
   Promise.all([resPing, resDownload, resUpload]).then((values) => {
